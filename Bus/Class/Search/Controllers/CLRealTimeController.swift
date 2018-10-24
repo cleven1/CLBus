@@ -9,6 +9,8 @@
 import UIKit
 import SnapKit
 
+fileprivate let contentViewHeight:CGFloat = 220
+
 class CLRealTimeController: CLRootViewController {
 
     private var lineModel:CLLineModel?
@@ -76,7 +78,7 @@ class CLRealTimeController: CLRootViewController {
             make.leading.equalTo(view).offset(ScreenInfo.kMargin_20)
             make.trailing.equalTo(view).offset(-ScreenInfo.kMargin_20)
             make.centerY.equalTo(view)
-            make.height.equalTo(200)
+            make.height.equalTo(contentViewHeight)
         }
         UIView.animate(withDuration: 0.25, animations: {
             self.view.backgroundColor = UIColor.cl_RGBColor(r: 0, g: 0, b: 0, a: 0.8)
@@ -91,7 +93,7 @@ class CLRealTimeController: CLRootViewController {
             make.leading.equalTo(view).offset(ScreenInfo.kMargin_20)
             make.trailing.equalTo(view).offset(-ScreenInfo.kMargin_20)
             make.top.equalTo(view.snp.bottom)
-            make.height.equalTo(200)
+            make.height.equalTo(contentViewHeight)
         }
         UIView.animate(withDuration: 0.25, animations: {
             self.view.backgroundColor = UIColor.cl_RGBColor(r: 0, g: 0, b: 0, a: 0)
@@ -111,7 +113,7 @@ class CLRealTimeController: CLRootViewController {
             make.leading.equalTo(view).offset(ScreenInfo.kMargin_20)
             make.trailing.equalTo(view).offset(-ScreenInfo.kMargin_20)
             make.top.equalTo(view.snp.bottom)
-            make.height.equalTo(150)
+            make.height.equalTo(contentViewHeight)
         }
         
         let titleLabel:UILabel = UILabel(text: currentStation, textColor: UIColor.black, fontSize: 14)
@@ -136,9 +138,9 @@ class CLRealTimeController: CLRootViewController {
         contentView.addSubview(infoView)
         infoView.snp.makeConstraints { (make) in
             make.centerX.equalTo(contentView)
-            make.bottom.equalTo(contentView).offset(-ScreenInfo.Kmargin_10)
+            make.bottom.equalTo(contentView).offset(-55)
             make.top.equalTo(endStationLabel.snp.bottom).offset(ScreenInfo.Kmargin_10)
-            make.width.equalTo(200)
+            make.width.equalTo(230)
         }
         
         let nextLabel:UILabel = UILabel(text: "下一班:", textColor: UIColor.darkGray, fontSize: 11)
@@ -166,7 +168,17 @@ class CLRealTimeController: CLRootViewController {
         infoView.addSubview(terminalLabel!)
         terminalLabel?.snp.makeConstraints { (make) in
             make.centerX.equalTo(infoView)
-            make.bottom.equalTo(infoView).offset(-ScreenInfo.Kmargin_15)
+            make.bottom.equalTo(infoView).offset(-ScreenInfo.Kmargin_10)
+        }
+        
+        let refreshButton = UIButton(title: "刷新", titleColor: UIColor.red)
+        refreshButton.backgroundColor = UIColor.cyan
+        contentView.addSubview(refreshButton)
+        refreshButton.snp.makeConstraints { (make) in
+            make.centerX.equalTo(contentView)
+            make.bottom.equalTo(contentView).offset(-ScreenInfo.Kmargin_10)
+            make.width.equalTo(80)
+            make.height.equalTo(35)
         }
         
         

@@ -9,7 +9,7 @@ target 'Bus' do
   pod 'SnapKit', '~> 4.0.0'
   pod 'MJRefresh', '~> 3.1.0'
 #  pod 'MBProgressHUD', '~> 1.1.0'
-#  pod 'HandyJSON', '~> 4.2.0'
+  pod 'HandyJSON', '~> 4.2.0'
 #  pod 'Kingfisher', '~> 4.10.0'
   pod 'SwiftyXMLParser', :git => 'https://github.com/yahoojapan/SwiftyXMLParser.git'
 end

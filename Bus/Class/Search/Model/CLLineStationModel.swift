@@ -23,7 +23,7 @@ struct CLLineStationModel: HandyJSON {
 }
 
 struct CLLineStation: HandyJSON {
-    
+
     var id:String?
     var zdmc:String?
 }

@@ -71,7 +71,10 @@ extension CLBusLineDetailController:UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: ScreenInfo.Width, height: 80))
         view.backgroundColor = UIColor.blue
-        let station = direction ? (lineModel!.start_stop! + " → " + lineModel!.end_stop!) : (lineModel!.end_stop! + " → " + lineModel!.start_stop!)
+        guard let start_stop = lineModel?.start_stop,let end_stop = lineModel?.end_stop else {
+            return view
+        }
+        let station = direction ? (start_stop + " → " + end_stop) : (end_stop + " → " + start_stop)
         let titleLabel = UILabel(text: station , textColor: UIColor.white, fontSize: 14)
         view.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { (make) in
@@ -122,7 +125,7 @@ extension CLBusLineDetailController:UITableViewDelegate,UITableViewDataSource {
         let model = direction ? stationModel?.forwardStops![indexPath.row] : stationModel?.reverseStops![indexPath.row]
         
 //        CLRealTimeController.showDetailView(currentStation: model?.zdmc ?? "", endStation: lineModel?.end_stop ?? "", vc: self)
-        CLRealTimeController.showDetailView(currentStation: model?.zdmc ?? "", lineModel: lineModel, stopId: model?.id ?? "", direction: direction, vc: self)
+        CLRealTimeController.showDetailView(currentStation: model?.zdmc ?? "", lineModel: lineModel, stopId: model?.id ?? "", direction: !direction, vc: self)
     }
     
 }

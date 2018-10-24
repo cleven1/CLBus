@@ -7,14 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A352C3812177385700A0810B /* HandyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A352C3802177385700A0810B /* HandyJSON.framework */; };
 		A352C3832177387600A0810B /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A352C3822177387600A0810B /* MBProgressHUD.framework */; };
 		A352C3862177395E00A0810B /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A352C3842177395E00A0810B /* MBProgressHUD.framework */; };
 		A352C3872177395E00A0810B /* HandyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A352C3852177395E00A0810B /* HandyJSON.framework */; };
 		A352C38B21773BB500A0810B /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A352C3822177387600A0810B /* MBProgressHUD.framework */; };
 		A352C38C21773BB500A0810B /* MBProgressHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A352C3822177387600A0810B /* MBProgressHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A352C38D21773BB500A0810B /* HandyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A352C3802177385700A0810B /* HandyJSON.framework */; };
-		A352C38E21773BB500A0810B /* HandyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A352C3802177385700A0810B /* HandyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A352C39121773EDB00A0810B /* BusData.json in Resources */ = {isa = PBXBuildFile; fileRef = A352C39021773EDB00A0810B /* BusData.json */; };
 		A352C39321773F2100A0810B /* CLLinesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A352C39221773F2100A0810B /* CLLinesModel.swift */; };
 		A352C3952178981F00A0810B /* CLSearchLineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A352C3942178981F00A0810B /* CLSearchLineController.swift */; };
@@ -81,7 +79,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				A352C38C21773BB500A0810B /* MBProgressHUD.framework in Embed Frameworks */,
-				A352C38E21773BB500A0810B /* HandyJSON.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -169,7 +166,6 @@
 				A872B0BD6E36BB44ABB85C7D /* Pods_Bus.framework in Frameworks */,
 				A352C38D21773BB500A0810B /* HandyJSON.framework in Frameworks */,
 				A352C38B21773BB500A0810B /* MBProgressHUD.framework in Frameworks */,
-				A352C3812177385700A0810B /* HandyJSON.framework in Frameworks */,
 				A352C3872177395E00A0810B /* HandyJSON.framework in Frameworks */,
 				A352C3832177387600A0810B /* MBProgressHUD.framework in Frameworks */,
 			);
@@ -625,6 +621,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Bus/Pods-Bus-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyXMLParser/SwiftyXMLParser.framework",
@@ -632,6 +629,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyXMLParser.framework",
