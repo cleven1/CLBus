@@ -321,7 +321,7 @@
 				A3F58D7121772BAF00ED7B9E /* ChangeLine */,
 				A3F58D6D21772BAF00ED7B9E /* Collect */,
 				A3F58D7521772BAF00ED7B9E /* Profile */,
-				A3F58D6921772B2800ED7B9E /* Search */,
+				A3F58D6921772B2800ED7B9E /* Home */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -373,7 +373,7 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		A3F58D6921772B2800ED7B9E /* Search */ = {
+		A3F58D6921772B2800ED7B9E /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				A36DC52E2179DA950094D4F9 /* shbus.plist */,
@@ -382,7 +382,7 @@
 				A3F58D6B21772B9E00ED7B9E /* Views */,
 				A3F58D6A21772B3900ED7B9E /* Model */,
 			);
-			path = Search;
+			path = Home;
 			sourceTree = "<group>";
 		};
 		A3F58D6A21772B3900ED7B9E /* Model */ = {
