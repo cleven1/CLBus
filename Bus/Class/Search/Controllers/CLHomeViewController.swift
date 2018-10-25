@@ -19,21 +19,34 @@ class CLHomeViewController: CLRootViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let linesModel = CLLinesModel()
+        getCacheData()
         dataArray.add(searchDataArray)
+        let linesModel = CLLinesModel()
         if let data = linesModel.getBusData() {
             dataArray.add(data)
         }
         setNavBar()
         setupUI()
-        
+        ///监听是否被kill
+        NotificationCenter.default.addObserver(self, selector: #selector(self.observeWillTerminate), name: NSNotification.Name.UIApplicationWillTerminate, object: nil)
+    }
+    
+    private func getCacheData(){
+        let userD = UserDefaults.standard
+        if let historyData = userD.object(forKey: "CLHomeHistoryBus") as? [[String:Any]] {
+            for dict in historyData {
+                searchDataArray.append(CLLineModel.deserialize(from: dict)!)
+            }
+        }
     }
     
     private func setNavBar(){
         navigationItem.leftBarButtonItem = UIBarButtonItem()
         navigationItem.leftBarButtonItem?.customView?.isHidden = true
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "搜索", style: .done, target: self, action: #selector(self.clickSearchButton))
+        let searchButton:UIButton = UIButton(title: "搜索", titleColor: UIColor.black)
+        searchButton.addTarget(self, action: #selector(self.clickSearchButton), for: .touchUpInside)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: searchButton)
         
     }
     private func setupUI(){
@@ -82,12 +95,19 @@ class CLHomeViewController: CLRootViewController {
         self.tableView.reloadData()
     }
     
+    
+    @objc private func observeWillTerminate() {
+        let userD = UserDefaults.standard
+        if let historyData = (self.dataArray[0] as? [CLLineModel])?.toJSON() {
+            userD.set(historyData, forKey: "CLHomeHistoryBus")
+            userD.synchronize()
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 
 extension CLHomeViewController:UITableViewDelegate,UITableViewDataSource {
@@ -141,7 +161,7 @@ extension CLHomeViewController:UITableViewDelegate,UITableViewDataSource {
                 titleLabel.text = "历史记录"
                 let clearBtn:UIButton = UIButton(frame: CGRect(x: ScreenInfo.Width - 50, y: 0, width: 50, height: 40))
                 clearBtn.setTitle("清除", for: .normal)
-                clearBtn.setTitleColor(UIColor.blue, for: .normal)
+                clearBtn.setTitleColor(UIColor.cl_colorWithHex(hex: 0x3F35FC), for: .normal)
                 clearBtn.titleLabel?.font = UIFont.systemFont(ofSize: 13)
                 clearBtn.addTarget(self, action: #selector(self.clickClearHistoryData), for: .touchUpInside)
                 view.addSubview(clearBtn)
