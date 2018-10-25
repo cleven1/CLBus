@@ -18,7 +18,7 @@ class CLBusDetailLineCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+
         setupUI()
     }
     
@@ -30,8 +30,8 @@ class CLBusDetailLineCell: UITableViewCell {
         
         orderButton = UIButton()
         orderButton.setTitleColor(UIColor.cl_colorWithHex(hex: 0x6389F9), for: .normal)
-        orderButton.layer.borderWidth = 3
         orderButton.layer.borderColor = UIColor.cl_colorWithHex(hex: 0x6389F9).cgColor
+        orderButton.layer.borderWidth = 3
         orderButton.layer.cornerRadius = 10
         orderButton.layer.masksToBounds = true
         orderButton.titleLabel?.font = UIFont.systemFont(ofSize: 10)
@@ -76,6 +76,19 @@ class CLBusDetailLineCell: UITableViewCell {
         bottomLine.isHidden = model.isFirst
         orderButton.setTitle("\(model.index + 1)", for: .normal)
         titleLabel.text = model.zdmc
+        if model.direction {
+            let color = UIColor.cl_colorWithHex(hex: 0x6389F9)
+            orderButton.setTitleColor(color, for: .normal)
+            orderButton.layer.borderColor = color.cgColor
+            topLine.backgroundColor = color
+            bottomLine.backgroundColor = color
+        }else{
+            let color = UIColor.cl_colorWithHex(hex: 0x841DFB)
+            orderButton.setTitleColor(color, for: .normal)
+            orderButton.layer.borderColor = color.cgColor
+            topLine.backgroundColor = color
+            bottomLine.backgroundColor = color
+        }
     }
 
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A312FE0D2181C1F300E17515 /* CLNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A312FE0C2181C1F300E17515 /* CLNavigationController.swift */; };
 		A352C3832177387600A0810B /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A352C3822177387600A0810B /* MBProgressHUD.framework */; };
 		A352C3862177395E00A0810B /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A352C3842177395E00A0810B /* MBProgressHUD.framework */; };
 		A352C3872177395E00A0810B /* HandyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A352C3852177395E00A0810B /* HandyJSON.framework */; };
@@ -88,6 +89,7 @@
 /* Begin PBXFileReference section */
 		2435713C813839C572836BEA /* Pods-Bus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bus/Pods-Bus.debug.xcconfig"; sourceTree = "<group>"; };
 		735FF44B1EED72C2F5C9561B /* Pods-Bus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bus/Pods-Bus.release.xcconfig"; sourceTree = "<group>"; };
+		A312FE0C2181C1F300E17515 /* CLNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLNavigationController.swift; sourceTree = "<group>"; };
 		A352C3802177385700A0810B /* HandyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HandyJSON.framework; sourceTree = "<group>"; };
 		A352C3822177387600A0810B /* MBProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MBProgressHUD.framework; sourceTree = "<group>"; };
 		A352C3842177395E00A0810B /* MBProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MBProgressHUD.framework; path = Bus/Third/MBProgressHUD.framework; sourceTree = "<group>"; };
@@ -514,6 +516,7 @@
 			children = (
 				A3F58D7B21772F8E00ED7B9E /* CLRootViewController.swift */,
 				A3F58D7C21772F8E00ED7B9E /* CLTabBarController.swift */,
+				A312FE0C2181C1F300E17515 /* CLNavigationController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -690,6 +693,7 @@
 				A3F58D6621772B0C00ED7B9E /* CLRegisterController.swift in Sources */,
 				A3F58D4A21772AA700ED7B9E /* UITableView+CLBase.swift in Sources */,
 				A352C3B12179C35100A0810B /* CLBusDetailLineCell.swift in Sources */,
+				A312FE0D2181C1F300E17515 /* CLNavigationController.swift in Sources */,
 				A3F58D802177307E00ED7B9E /* CLHomeViewController.swift in Sources */,
 				A352C39321773F2100A0810B /* CLLinesModel.swift in Sources */,
 				A3F58D2A21772A8B00ED7B9E /* NSDate+Extension.swift in Sources */,

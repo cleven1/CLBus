@@ -37,7 +37,9 @@ class CLBusLineDetailController: CLRootViewController {
         tableView = UITableView(frame: view.bounds, style: .plain)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorStyle = .none
         tableView.register(CLBusDetailLineCell.self, forCellReuseIdentifier: "CLBusLineDetailCell")
+        tableView.tableFooterView = UIView()
         view.addSubview(tableView)
         
     }
@@ -74,6 +76,7 @@ extension CLBusLineDetailController:UITableViewDelegate,UITableViewDataSource {
             model.isFirst = false
             model.isLast = true
         }
+        model.direction = direction
         model.index = indexPath.row
         cell?.setStationModel(model: model)
         
@@ -152,7 +155,6 @@ extension CLBusLineDetailController:UITableViewDelegate,UITableViewDataSource {
         
         let model = direction ? stationModel?.forwardStops![indexPath.row] : stationModel?.reverseStops![indexPath.row]
         
-//        CLRealTimeController.showDetailView(currentStation: model?.zdmc ?? "", endStation: lineModel?.end_stop ?? "", vc: self)
         CLRealTimeController.showDetailView(currentStation: model?.zdmc ?? "", lineModel: lineModel, stopId: model?.id ?? "", direction: !direction, vc: self)
     }
     

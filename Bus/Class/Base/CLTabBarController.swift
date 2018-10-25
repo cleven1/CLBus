@@ -42,7 +42,7 @@ extension CLTabBarController {
         
         vc.tabBarItem.setTitleTextAttributes([NSAttributedStringKey.foregroundColor:UIColor.cl_colorWithHex(hex: 0x1296db)], for: .selected)
         
-        let nav = UINavigationController(rootViewController: vc)
+        let nav = CLNavigationController(rootViewController: vc)
         //添加子控制器
         addChildViewController(nav)
         

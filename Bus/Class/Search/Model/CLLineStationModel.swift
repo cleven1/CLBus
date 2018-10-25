@@ -23,9 +23,15 @@ struct CLLineStationModel: HandyJSON {
 }
 
 struct CLLineStation: HandyJSON {
+    
     var isFirst:Bool = false
     var isLast:Bool = false
+    /// 站
     var index:Int = 0
+    /// 放向
+    var direction:Bool = false
+    /// id
     var id:String?
+    /// 站名称
     var zdmc:String?
 }
