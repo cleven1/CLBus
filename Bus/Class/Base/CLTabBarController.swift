@@ -20,7 +20,7 @@ extension CLTabBarController {
     
     fileprivate func setUpUI(){
         
-        addChildViewController(title: "搜索", vc: CLHomeViewController(), imageName: "bt_tabbar_search")
+        addChildViewController(title: "首页", vc: CLHomeViewController(), imageName: "bt_tabbar_search")
         
         addChildViewController(title:"换乘", vc: CLChangeViewController(), imageName: "bt_tabbar_transit")
         

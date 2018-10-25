@@ -9,7 +9,7 @@
 import UIKit
 import HandyJSON
 
-struct CLLineModel: HandyJSON {
+class CLLineModel: HandyJSON {
     /// 开始最晚班车时间
     var start_latetime:String?
     /// 线路
@@ -26,5 +26,8 @@ struct CLLineModel: HandyJSON {
     var start_stop:String?
     /// 结束最晚班车时间
     var end_latetime:String?
+    /// 历史记录排序用
+    var timeStamp:String = ""
     
+    required init(){}
 }

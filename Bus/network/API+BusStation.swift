@@ -55,36 +55,42 @@ extension HYBNetworking {
             guard let dict = response as? [String:Any] else {failure("解析失败");return}
             if let data = dict["data"] as? [String:Any] { // json解析
                 var stationModel = CLLineStationModel()
+                var forwardStops:[CLLineStation] = [CLLineStation]()
+                var reverseStops:[CLLineStation] = [CLLineStation]()
                 if let lineResults0 = data["lineResults0"] as? [String:Any] {
-                    let direction = lineResults0["direction"] as? Bool
-                    if direction == true {
+                    let direction = lineResults0["direction"] as! String
+                    if direction == "true" {
                         if let stops = lineResults0["stops"] as? [[String:Any]] {
                             for stop in stops {
-                                stationModel.forwardStops?.append(CLLineStation.deserialize(from: stop)!)
+                                forwardStops.append(CLLineStation.deserialize(from: stop)!)
                             }
+                            stationModel.forwardStops = forwardStops
                         }
                     }else{
                         if let stops = lineResults0["stops"] as? [[String:Any]] {
                             for stop in stops {
-                                stationModel.reverseStops?.append(CLLineStation.deserialize(from: stop)!)
+                               reverseStops.append(CLLineStation.deserialize(from: stop)!)
                             }
+                            stationModel.reverseStops = reverseStops
                         }
                     }
                     
                 }
                 if let lineResults1 = data["lineResults1"] as? [String:Any] {
-                    let direction = lineResults1["direction"] as? Bool
-                    if direction == true {
+                    let direction = lineResults1["direction"] as! String
+                    if direction == "true" {
                         if let stops = lineResults1["stops"] as? [[String:Any]] {
                             for stop in stops {
-                                stationModel.forwardStops?.append(CLLineStation.deserialize(from: stop)!)
+                               forwardStops.append(CLLineStation.deserialize(from: stop)!)
                             }
+                            stationModel.forwardStops = forwardStops
                         }
                     }else{
                         if let stops = lineResults1["stops"] as? [[String:Any]] {
                             for stop in stops {
-                                stationModel.reverseStops?.append(CLLineStation.deserialize(from: stop)!)
+                                reverseStops.append(CLLineStation.deserialize(from: stop)!)
                             }
+                            stationModel.reverseStops = reverseStops
                         }
                     }
                 }

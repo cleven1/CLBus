@@ -29,6 +29,31 @@ class CLTools: NSObject {
         return dateString
     }
     
+    /// 时间格式化
+    func timeFormatted(for totalSeconds: Int, format: String? = "%02d:%02d") -> String {
+        let seconds: Int = totalSeconds % 60
+        let minutes: Int = (totalSeconds / 60) % 60
+        //        let hours: Int = (totalSeconds / 60 / 60) % 24
+        //@"%02d'%02d\""
+        return String(format: format ?? "", minutes, seconds)
+    }
+    
+    /// 获取当前 秒级 时间戳 - 10位
+    func timeStampSeconds() -> String {
+        let date = NSDate()
+        let timeInterval: TimeInterval = date.timeIntervalSince1970
+        let timeStamp = Int(timeInterval)
+        return "\(timeStamp)"
+    }
+    
+    /// 获取当前 毫秒级 时间戳 - 13位
+    func timeStamp() -> String {
+        let date = NSDate()
+        let timeInterval: TimeInterval = date.timeIntervalSince1970
+        let millisecond = CLongLong(round(timeInterval*1000))
+        return "\(millisecond)"
+    }
+    
     /**
      text：正则表达式
      matcherStr:需要进行判断的字符串

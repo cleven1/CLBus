@@ -59,9 +59,17 @@ class CLRealTimeController: CLRootViewController {
     
     private func setCarsMdoelData(carsModel:CLCarsModel) {
         let model = carsModel.cars?.first
-        timeLabel?.text = model?.time
-        stopdisLabel?.text = "剩余\(model?.stopdis ?? "0")站 约\(model?.distance ?? "0")米"
-        terminalLabel?.text = model?.terminal
+        
+        let time = Int(model?.time ?? "0") ?? 0
+        if time > 0 {
+            timeLabel?.text = CLTools.shareTool.timeFormatted(for: time)
+            stopdisLabel?.text = "剩余\(model?.stopdis ?? "0")站 约\(model?.distance ?? "0")米"
+            terminalLabel?.text = model?.terminal
+        }else{
+            timeLabel?.text = "未发车"
+            stopdisLabel?.isHidden = true
+            terminalLabel?.isHidden = true
+        }
     }
     
     /// 外部调用显示方法
@@ -172,7 +180,10 @@ class CLRealTimeController: CLRootViewController {
         }
         
         let refreshButton = UIButton(title: "刷新", titleColor: UIColor.red)
-        refreshButton.backgroundColor = UIColor.cyan
+        refreshButton.backgroundColor = UIColor.cl_colorWithHex(hex: 0xF8D100)
+        refreshButton.layer.cornerRadius = 5
+        refreshButton.layer.masksToBounds = true
+        refreshButton.addTarget(self, action: #selector(self.clickRefreshButton), for: .touchUpInside)
         contentView.addSubview(refreshButton)
         refreshButton.snp.makeConstraints { (make) in
             make.centerX.equalTo(contentView)
@@ -181,12 +192,15 @@ class CLRealTimeController: CLRootViewController {
             make.height.equalTo(35)
         }
         
-        
     }
     
     
     @objc private func clickTapGesture(){
         hiddenContentView()
+    }
+    
+    @objc private func clickRefreshButton() {
+        getRealTimeData()
     }
     
     override func didReceiveMemoryWarning() {

@@ -37,7 +37,7 @@ class CLSearchLineController: CLRootViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.title = "搜索"
         setupUI()
         addSearchController()
     }
@@ -70,7 +70,7 @@ class CLSearchLineController: CLRootViewController {
     private func fileterBusLineData(line:String) {
         
         dataArray = linesModel?.filter({
-            $0.line?.rangeOfCharacter(from: CharacterSet(charactersIn: line)) != nil
+            return $0.line?.hasPrefix(line) ?? false
         })
         
     }

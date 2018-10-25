@@ -37,11 +37,15 @@ class CLBusLineDetailController: CLRootViewController {
         tableView = UITableView(frame: view.bounds, style: .plain)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CLBusLineDetailCell")
+        tableView.register(CLBusDetailLineCell.self, forCellReuseIdentifier: "CLBusLineDetailCell")
         view.addSubview(tableView)
         
     }
     
+    @objc private func clickBusChange() {
+        direction = !direction
+        tableView.reloadData()
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -59,18 +63,28 @@ extension CLBusLineDetailController:UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CLBusLineDetailCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CLBusLineDetailCell", for: indexPath) as? CLBusDetailLineCell
         
-        let model = direction ? stationModel?.forwardStops![indexPath.row] : stationModel?.reverseStops![indexPath.row]
+        let stations = direction ? stationModel?.forwardStops : stationModel?.reverseStops
+        var model = stations![indexPath.row]
+        if indexPath.row == 0 {
+            model.isFirst = true
+            model.isLast = false
+        }else if indexPath.row == stations!.count - 1 {
+            model.isFirst = false
+            model.isLast = true
+        }
+        model.index = indexPath.row
+        cell?.setStationModel(model: model)
         
-        cell.textLabel?.text = model?.zdmc
-        
-        return cell
+        return cell!
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: ScreenInfo.Width, height: 80))
-        view.backgroundColor = UIColor.blue
+        
+        let color = direction ? UIColor.cl_colorWithHex(hex: 0xFF7C73) : UIColor.cl_colorWithHex(hex: 0xFF9500)
+        view.backgroundColor = color
         guard let start_stop = lineModel?.start_stop,let end_stop = lineModel?.end_stop else {
             return view
         }
@@ -112,11 +126,25 @@ extension CLBusLineDetailController:UITableViewDelegate,UITableViewDataSource {
             make.leading.equalTo(endLabel.snp.trailing)
         }
         
+        let refreshButton:UIButton = UIButton()
+        refreshButton.setImage(UIImage(named: "bt_tabbar_transit_select"), for: .normal)
+        view.addSubview(refreshButton)
+        refreshButton.addTarget(self, action: #selector(self.clickBusChange), for: .touchUpInside)
+        refreshButton.snp.makeConstraints { (make) in
+            make.centerY.height.equalTo(view)
+            make.trailing.equalTo(view).offset(-20)
+            make.width.equalTo(40)
+        }
+        
         return view
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 60
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

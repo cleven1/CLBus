@@ -23,7 +23,9 @@ struct CLLineStationModel: HandyJSON {
 }
 
 struct CLLineStation: HandyJSON {
-
+    var isFirst:Bool = false
+    var isLast:Bool = false
+    var index:Int = 0
     var id:String?
     var zdmc:String?
 }

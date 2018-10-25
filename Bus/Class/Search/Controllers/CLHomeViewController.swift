@@ -47,21 +47,40 @@ class CLHomeViewController: CLRootViewController {
     }
 
     @objc private func clickClearHistoryData() {
-        
+        searchDataArray.removeAll()
+        self.dataArray[0] = searchDataArray
+        self.tableView.reloadData()
     }
     
     @objc private func clickSearchButton() {
         let searchVC = CLSearchLineController(linesModel: dataArray[1] as! [CLLinesModel])
         searchVC.searchBusLineCallback = { [weak self] lineModel in
-            self?.searchDataArray.append(lineModel)
-            if self?.searchDataArray.isEmpty == false {
-                self?.dataArray[0] = self?.searchDataArray ?? ""
-            }
-            self?.tableView.reloadData()
+            self?.addHistoryLine(lineModel: lineModel)
         }
         navigationController?.pushViewController(searchVC, animated: true)
     }
     
+    
+    private func addHistoryLine(lineModel:CLLineModel) {
+        lineModel.timeStamp = CLTools.shareTool.timeStamp()
+        if self.searchDataArray.contains(where: {$0.line_name == lineModel.line_name}) {
+            
+            let historyArray = self.dataArray[0] as! [CLLineModel]
+            
+            let historyModel = historyArray.filter({$0.line_name == lineModel.line_name}).first
+            historyModel?.timeStamp = lineModel.timeStamp
+
+            self.dataArray[0] = historyArray.sorted(by: {(Int($0.timeStamp) ?? 0) > (Int($1.timeStamp) ?? 0)})
+            self.tableView.reloadData()
+            return
+        }
+        self.searchDataArray.append(lineModel)
+        if self.searchDataArray.isEmpty == false {
+            self.searchDataArray = self.searchDataArray.sorted(by: {(Int($0.timeStamp) ?? 0) > (Int($1.timeStamp) ?? 0)})
+            self.dataArray[0] = self.searchDataArray
+        }
+        self.tableView.reloadData()
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -129,7 +148,6 @@ extension CLHomeViewController:UITableViewDelegate,UITableViewDataSource {
             }
         }
         return view
-        
     }
     
     
@@ -143,7 +161,45 @@ extension CLHomeViewController:UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
+        var line:String?
+        if let searchData = dataArray[0] as? [CLLineModel],searchData.count > 0 {
+            if indexPath.section == 0 {
+                let datas = dataArray[indexPath.section] as! [CLLineModel]
+                var lineModel = datas[indexPath.row]
+                line = lineModel.line_name
+            }else{
+                let datas = dataArray[indexPath.section] as! [CLLinesModel]
+                let lineModel = datas[indexPath.row]
+                line = lineModel.line
+            }
+        }else{
+            let datas = dataArray[1] as! [CLLinesModel]
+            let model = datas[indexPath.row]
+            line = model.line
+        }
         
+        HUD.showTextHudTips(message: "正在获取线路信息...",view:view)
+        HYBNetworking.getBusStation(line: line ?? "", success: { (response) in
+            
+            let lineModel = response as! CLLineModel
+            lineModel.line_name = line
+            
+            self.addHistoryLine(lineModel: lineModel)
+            
+            HYBNetworking.getCurrentLineAllStation(lineName: lineModel.line_name ?? "", lineId: lineModel.line_id ?? "", success: { (response) in
+                HUD.hideHud()
+                let model = response as! CLLineStationModel
+                let lineDetailVC = CLBusLineDetailController(lineModel: lineModel, stationModel: model)
+                self.navigationController?.pushViewController(lineDetailVC, animated: true)
+            }, failure: { (error) in
+                HUD.hideHud()
+                HUD.showErrorMessage(message: "请求失败")
+            })
+            
+        }) { (error) in
+            HUD.hideHud()
+            HUD.showErrorMessage(message: "请求失败")
+        }
     }
     
 }
