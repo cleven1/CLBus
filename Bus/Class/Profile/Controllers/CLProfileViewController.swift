@@ -13,7 +13,8 @@ class CLProfileViewController: CLRootViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        navigationItem.leftBarButtonItem = UIBarButtonItem()
+        navigationItem.leftBarButtonItem?.customView?.isHidden = true
     }
 
     override func didReceiveMemoryWarning() {

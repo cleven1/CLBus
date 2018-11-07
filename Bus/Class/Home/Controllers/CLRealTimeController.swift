@@ -17,7 +17,7 @@ class CLRealTimeController: CLRootViewController {
     private var currentStation:String?
     private var direction:Bool = false
     private var stopId:String?
-    private var contentView:UIView = UIView()
+    private var contentView:UIButton = UIButton()
     /// 剩余时间
     private var timeLabel:UILabel?
     /// 剩余站和距离
@@ -48,12 +48,11 @@ class CLRealTimeController: CLRootViewController {
     }
     
     private func getRealTimeData() {
-        
         HYBNetworking.getBusRealTimeData(direction: direction ? 1 : 0, lineId: lineModel?.line_id ?? "", lineNama: lineModel?.line_name ?? "", stopId: stopId ?? "", success: { (response) in
             let carsModel = response as! CLCarsModel
             self.setCarsMdoelData(carsModel: carsModel)
         }) { (error) in
-            HUD.showErrorMessage(message: "获取数据失败")
+            HUD.hideHud()
         }
     }
     
@@ -180,6 +179,7 @@ class CLRealTimeController: CLRootViewController {
         }
         
         let refreshButton = UIButton(title: "刷新", titleColor: UIColor.red)
+        refreshButton.setTitleColor(UIColor.purple, for: .highlighted)
         refreshButton.backgroundColor = UIColor.cl_colorWithHex(hex: 0xF8D100)
         refreshButton.layer.cornerRadius = 5
         refreshButton.layer.masksToBounds = true

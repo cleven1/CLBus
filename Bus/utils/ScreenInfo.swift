@@ -41,5 +41,37 @@ struct ScreenInfo {
     }
     static private func statusBarHeight() -> CGFloat{
         return isIphoneX() ? 44 : 20
-    }    
+    }
+    
+    /// 长度适配
+    static public func length(_ length: CGFloat) -> CGFloat {
+        return (ScreenInfo.Width / 375.0) * length
+    }
+    
+    /// 根据scale来适配长度
+   static public func scaleLength(_ length: CGFloat) -> CGFloat {
+        var value = length
+        let scale = UIScreen.main.scale
+        if scale == 1.0 {
+            value = CGFloat(320.0 / 375.0) * length
+        }else if scale == 2.0 {
+            value = length
+        }else if scale == 3.0 {
+            value = CGFloat(414.0 / 375.0) * length
+        }
+        return value
+    }
+    
+    // 字号适配
+   static public func scaledFontSize(_ fs: CGFloat) -> CGFloat {
+        var value = fs
+        if ScreenInfo.Width < 375.0 {
+            value = fs * 0.9
+        }else if ScreenInfo.Width == 375.0 {
+            value = fs
+        }else if ScreenInfo.Width > 375.0 {
+            value = fs + 1
+        }
+        return value
+    }
 }

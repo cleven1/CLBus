@@ -30,7 +30,7 @@ extension HYBNetworking {
                 let start_earlytime = dict["start_earlytime"].text
                 let start_latetime = dict["start_latetime"].text
                 let start_stop = dict["start_stop"].text
-                var model = CLLineModel()
+                let model = CLLineModel()
                 model.end_earlytime = end_earlytime
                 model.end_latetime = end_latetime
                 model.end_stop = end_stop

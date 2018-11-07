@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A312FE0D2181C1F300E17515 /* CLNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A312FE0C2181C1F300E17515 /* CLNavigationController.swift */; };
+		A33363A42192C27C006A5383 /* CLAroundModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33363A32192C27C006A5383 /* CLAroundModel.swift */; };
+		A33363A62192C40B006A5383 /* CLUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33363A52192C40B006A5383 /* CLUtil.swift */; };
 		A352C3832177387600A0810B /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A352C3822177387600A0810B /* MBProgressHUD.framework */; };
 		A352C3862177395E00A0810B /* MBProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A352C3842177395E00A0810B /* MBProgressHUD.framework */; };
 		A352C3872177395E00A0810B /* HandyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A352C3852177395E00A0810B /* HandyJSON.framework */; };
@@ -24,6 +26,14 @@
 		A352C3AF2179C00F00A0810B /* CLBusLineDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A352C3AE2179C00F00A0810B /* CLBusLineDetailController.swift */; };
 		A352C3B12179C35100A0810B /* CLBusDetailLineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A352C3B02179C35100A0810B /* CLBusDetailLineCell.swift */; };
 		A352C3B32179CCA500A0810B /* CLRealTimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A352C3B22179CCA500A0810B /* CLRealTimeController.swift */; };
+		A358EAD521894683007A37BA /* CLChangeLineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A358EAD421894683007A37BA /* CLChangeLineModel.swift */; };
+		A358EAD7218996A0007A37BA /* CLColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A358EAD6218996A0007A37BA /* CLColor.swift */; };
+		A360495F218BEBC800A3D092 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A360495E218BEBC800A3D092 /* LocationManager.swift */; };
+		A3604961218BEC3600A3D092 /* CLSearchLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3604960218BEC3600A3D092 /* CLSearchLocationController.swift */; };
+		A3604963218BECE500A3D092 /* CLAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3604962218BECE500A3D092 /* CLAlertController.swift */; };
+		A3604965218BF25000A3D092 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3604964218BF25000A3D092 /* UIView+Extension.swift */; };
+		A366409B218FE03100AC4885 /* String+trim.swift in Sources */ = {isa = PBXBuildFile; fileRef = A366409A218FE03100AC4885 /* String+trim.swift */; };
+		A36C5B60218ADB1900009BD0 /* API+changeLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36C5B5F218ADB1900009BD0 /* API+changeLine.swift */; };
 		A36DC52F2179DA950094D4F9 /* shbus.plist in Resources */ = {isa = PBXBuildFile; fileRef = A36DC52E2179DA950094D4F9 /* shbus.plist */; };
 		A3F58CF321772A1300ED7B9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F58CF221772A1300ED7B9E /* AppDelegate.swift */; };
 		A3F58CFA21772A1300ED7B9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3F58CF921772A1300ED7B9E /* Assets.xcassets */; };
@@ -90,6 +100,8 @@
 		2435713C813839C572836BEA /* Pods-Bus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bus/Pods-Bus.debug.xcconfig"; sourceTree = "<group>"; };
 		735FF44B1EED72C2F5C9561B /* Pods-Bus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bus.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bus/Pods-Bus.release.xcconfig"; sourceTree = "<group>"; };
 		A312FE0C2181C1F300E17515 /* CLNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLNavigationController.swift; sourceTree = "<group>"; };
+		A33363A32192C27C006A5383 /* CLAroundModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLAroundModel.swift; sourceTree = "<group>"; };
+		A33363A52192C40B006A5383 /* CLUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLUtil.swift; sourceTree = "<group>"; };
 		A352C3802177385700A0810B /* HandyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = HandyJSON.framework; sourceTree = "<group>"; };
 		A352C3822177387600A0810B /* MBProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MBProgressHUD.framework; sourceTree = "<group>"; };
 		A352C3842177395E00A0810B /* MBProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MBProgressHUD.framework; path = Bus/Third/MBProgressHUD.framework; sourceTree = "<group>"; };
@@ -104,6 +116,14 @@
 		A352C3AE2179C00F00A0810B /* CLBusLineDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLBusLineDetailController.swift; sourceTree = "<group>"; };
 		A352C3B02179C35100A0810B /* CLBusDetailLineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLBusDetailLineCell.swift; sourceTree = "<group>"; };
 		A352C3B22179CCA500A0810B /* CLRealTimeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLRealTimeController.swift; sourceTree = "<group>"; };
+		A358EAD421894683007A37BA /* CLChangeLineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLChangeLineModel.swift; sourceTree = "<group>"; };
+		A358EAD6218996A0007A37BA /* CLColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLColor.swift; sourceTree = "<group>"; };
+		A360495E218BEBC800A3D092 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		A3604960218BEC3600A3D092 /* CLSearchLocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLSearchLocationController.swift; sourceTree = "<group>"; };
+		A3604962218BECE500A3D092 /* CLAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLAlertController.swift; sourceTree = "<group>"; };
+		A3604964218BF25000A3D092 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		A366409A218FE03100AC4885 /* String+trim.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+trim.swift"; sourceTree = "<group>"; };
+		A36C5B5F218ADB1900009BD0 /* API+changeLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+changeLine.swift"; sourceTree = "<group>"; };
 		A36DC52E2179DA950094D4F9 /* shbus.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = shbus.plist; sourceTree = "<group>"; };
 		A3F58CEF21772A1300ED7B9E /* Bus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F58CF221772A1300ED7B9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -176,6 +196,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A358EAD221894657007A37BA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A358EAD32189465E007A37BA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A358EAD421894683007A37BA /* CLChangeLineModel.swift */,
+				A33363A32192C27C006A5383 /* CLAroundModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		A3F58CE621772A1300ED7B9E = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +263,8 @@
 				A3F58D0E21772A8B00ED7B9E /* UIImage+Alpha.h */,
 				A3F58D0F21772A8B00ED7B9E /* CLImageUtil.swift */,
 				A3F58D1021772A8B00ED7B9E /* NSDate+Extension.swift */,
+				A3604964218BF25000A3D092 /* UIView+Extension.swift */,
+				A366409A218FE03100AC4885 /* String+trim.swift */,
 				A3F58D1121772A8B00ED7B9E /* UIImage+Alpha.m */,
 				A3F58D1221772A8B00ED7B9E /* UIImage+RoundedCorner.m */,
 				A3F58D1321772A8B00ED7B9E /* UIImage+Resize.m */,
@@ -237,9 +275,13 @@
 		A3F58D1421772A8B00ED7B9E /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				A3604962218BECE500A3D092 /* CLAlertController.swift */,
+				A360495E218BEBC800A3D092 /* LocationManager.swift */,
 				A3F58D1521772A8B00ED7B9E /* CLTools.swift */,
 				A3F58D1621772A8B00ED7B9E /* HUD.swift */,
 				A3F58D1721772A8B00ED7B9E /* ScreenInfo.swift */,
+				A358EAD6218996A0007A37BA /* CLColor.swift */,
+				A33363A52192C40B006A5383 /* CLUtil.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -252,6 +294,7 @@
 				A3F58D1B21772A8B00ED7B9E /* API+Register.swift */,
 				A3F58D2021772A8B00ED7B9E /* API+Login.swift */,
 				A352C39621789C3C00A0810B /* API+BusStation.swift */,
+				A36C5B5F218ADB1900009BD0 /* API+changeLine.swift */,
 			);
 			path = network;
 			sourceTree = "<group>";
@@ -450,33 +493,20 @@
 		A3F58D7121772BAF00ED7B9E /* ChangeLine */ = {
 			isa = PBXGroup;
 			children = (
-				A3F58D7221772BAF00ED7B9E /* Model */,
+				A358EAD32189465E007A37BA /* Models */,
+				A358EAD221894657007A37BA /* Views */,
 				A3F58D7321772BAF00ED7B9E /* Controllers */,
-				A3F58D7421772BAF00ED7B9E /* Views */,
 			);
 			path = ChangeLine;
-			sourceTree = "<group>";
-		};
-		A3F58D7221772BAF00ED7B9E /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		A3F58D7321772BAF00ED7B9E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				A3F58D85217730A400ED7B9E /* CLChangeViewController.swift */,
+				A3604960218BEC3600A3D092 /* CLSearchLocationController.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		A3F58D7421772BAF00ED7B9E /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		A3F58D7521772BAF00ED7B9E /* Profile */ = {
@@ -669,19 +699,27 @@
 			files = (
 				A3F58D4D21772AA700ED7B9E /* UICollectionView+CLBase.swift in Sources */,
 				A3F58D3021772A8B00ED7B9E /* ScreenInfo.swift in Sources */,
+				A358EAD521894683007A37BA /* CLChangeLineModel.swift in Sources */,
 				A3F58D4B21772AA700ED7B9E /* UITableView+CLEmpty.swift in Sources */,
+				A33363A42192C27C006A5383 /* CLAroundModel.swift in Sources */,
 				A352C3AB21798A1D00A0810B /* CLLineStationModel.swift in Sources */,
 				A352C3952178981F00A0810B /* CLSearchLineController.swift in Sources */,
 				A3F58D2221772A8B00ED7B9E /* UIImageView+Extension.swift in Sources */,
 				A3F58D4E21772AA700ED7B9E /* UICollectionView+CLEmpty.swift in Sources */,
 				A3F58D2321772A8B00ED7B9E /* UIImage + Extension.swift in Sources */,
 				A3F58D2921772A8B00ED7B9E /* CLImageUtil.swift in Sources */,
+				A3604963218BECE500A3D092 /* CLAlertController.swift in Sources */,
 				A3F58D2521772A8B00ED7B9E /* UILabel+Extension.swift in Sources */,
+				A3604961218BEC3600A3D092 /* CLSearchLocationController.swift in Sources */,
 				A3F58D2721772A8B00ED7B9E /* UINavigationController+Extension.swift in Sources */,
+				A360495F218BEBC800A3D092 /* LocationManager.swift in Sources */,
 				A352C3AD217998A000A0810B /* CLCarsModel.swift in Sources */,
 				A3F58D3321772A8B00ED7B9E /* API+Register.swift in Sources */,
+				A36C5B60218ADB1900009BD0 /* API+changeLine.swift in Sources */,
+				A358EAD7218996A0007A37BA /* CLColor.swift in Sources */,
 				A352C3B32179CCA500A0810B /* CLRealTimeController.swift in Sources */,
 				A3F58D7E21772F8E00ED7B9E /* CLTabBarController.swift in Sources */,
+				A33363A62192C40B006A5383 /* CLUtil.swift in Sources */,
 				A352C3AF2179C00F00A0810B /* CLBusLineDetailController.swift in Sources */,
 				A3F58D6821772B0C00ED7B9E /* CLButton.swift in Sources */,
 				A3F58D2F21772A8B00ED7B9E /* HUD.swift in Sources */,
@@ -694,6 +732,7 @@
 				A3F58D4A21772AA700ED7B9E /* UITableView+CLBase.swift in Sources */,
 				A352C3B12179C35100A0810B /* CLBusDetailLineCell.swift in Sources */,
 				A312FE0D2181C1F300E17515 /* CLNavigationController.swift in Sources */,
+				A3604965218BF25000A3D092 /* UIView+Extension.swift in Sources */,
 				A3F58D802177307E00ED7B9E /* CLHomeViewController.swift in Sources */,
 				A352C39321773F2100A0810B /* CLLinesModel.swift in Sources */,
 				A3F58D2A21772A8B00ED7B9E /* NSDate+Extension.swift in Sources */,
@@ -702,6 +741,7 @@
 				A3F58D4C21772AA700ED7B9E /* UICollectionView+MJRefresh.swift in Sources */,
 				A3F58D6721772B0C00ED7B9E /* CLUserModel.swift in Sources */,
 				A3F58D4921772AA700ED7B9E /* UITableView+MJRefResh.swift in Sources */,
+				A366409B218FE03100AC4885 /* String+trim.swift in Sources */,
 				A3F58D5221772AC000ED7B9E /* CLUserManager.swift in Sources */,
 				A352C39721789C3C00A0810B /* API+BusStation.swift in Sources */,
 				A3F58D86217730A400ED7B9E /* CLChangeViewController.swift in Sources */,
@@ -845,6 +885,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7G828VPU6N;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Bus/Third",
@@ -866,6 +907,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7G828VPU6N;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Bus/Third",

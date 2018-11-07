@@ -17,7 +17,7 @@ class CLTools: NSObject {
         return Tool
     }()
     public var isShowBar : Bool = true
-    
+
     //获取当前时间
     func getDate() -> String{
         let dateFormat = DateFormatter.init()
@@ -52,6 +52,13 @@ class CLTools: NSObject {
         let timeInterval: TimeInterval = date.timeIntervalSince1970
         let millisecond = CLongLong(round(timeInterval*1000))
         return "\(millisecond)"
+    }
+    
+    /// 交换两个变量的值
+    func swap<T>(a: inout T , b:inout T){
+        let temp = a
+        a = b
+        b = temp
     }
     
     /**
